@@ -6,6 +6,7 @@ import { setThemeFromPreference, initTheme } from './modules/theme.js';
 import { initTabs } from './modules/tabs.js';
 import { initPromptLibrary } from './modules/prompt-library.js';
 import { initKanbanBoard } from './modules/kanban-board.js';
+import { initCanvasDrawing } from './modules/canvas-drawing.js';
 
 /**
  * Initializes the application
@@ -19,6 +20,7 @@ function init() {
     initTabs();
     initPromptLibrary();
     initKanbanBoard();
+    initCanvasDrawing();
 
     console.log('Application initialized successfully');
 }
