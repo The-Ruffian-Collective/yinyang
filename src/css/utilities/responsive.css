@@ -1,0 +1,313 @@
+/* ========================================
+   RESPONSIVE & MOBILE-FIRST STYLES
+   ======================================== */
+
+/* Small devices (phones, 320px and up) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .dashboard {
+        padding-top: 80px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .toggle-btn {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .yin-yang {
+        width: 45px;
+        height: 45px;
+    }
+
+    .yin-yang::before,
+    .yin-yang::after {
+        width: 22.5px;
+        height: 22.5px;
+    }
+
+    .yin-yang::before {
+        box-shadow: 0 11.25px 0 black;
+    }
+
+    .yin-yang::after {
+        box-shadow: 0 -11.25px 0 white;
+    }
+
+    .tab-nav {
+        gap: 2px;
+        margin-bottom: 12px;
+    }
+
+    .tab-btn {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    .content-placeholder {
+        padding: 12px;
+    }
+
+    .content-placeholder h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .content-placeholder p {
+        font-size: 13px;
+    }
+
+    /* Prompt Library Mobile */
+    .prompts-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .search-bar {
+        padding: 10px 12px;
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .add-prompt-form {
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+
+    .add-prompt-form h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .form-group textarea {
+        min-height: 80px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .prompt-card {
+        padding: 12px;
+    }
+
+    .prompt-card-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .prompt-card-content {
+        font-size: 13px;
+        max-height: 80px;
+    }
+
+    .prompt-card-actions {
+        gap: 6px;
+    }
+
+    .btn-small {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    /* Kanban Mobile */
+    .kanban-board {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .kanban-column {
+        max-height: 400px;
+    }
+
+    .kanban-header {
+        padding: 12px;
+    }
+
+    .kanban-header h3 {
+        font-size: 14px;
+    }
+
+    .card-count {
+        padding: 2px 8px;
+        font-size: 11px;
+    }
+
+    .kanban-list {
+        padding: 8px;
+        gap: 8px;
+        min-height: 80px;
+    }
+
+    .kanban-card {
+        padding: 8px;
+    }
+
+    .kanban-card-title {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .kanban-card-description {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .btn-card-delete {
+        padding: 3px 8px;
+        font-size: 11px;
+    }
+
+    .empty-state {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+
+    .kanban-add-card {
+        max-width: 100%;
+        margin: 0 auto 12px;
+        padding: 12px;
+    }
+
+    .card-input {
+        padding: 8px 10px;
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+
+    .kanban-add-card textarea {
+        min-height: 50px;
+    }
+
+    .no-prompts {
+        padding: 30px 12px;
+    }
+
+    .no-prompts h3 {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .no-prompts p {
+        font-size: 13px;
+    }
+
+    .edit-mode-indicator {
+        padding: 3px 8px;
+        font-size: 11px;
+        margin-left: 4px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .dashboard {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .prompts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+
+    .kanban-board {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 16px;
+    }
+
+    .kanban-column {
+        max-height: 500px;
+    }
+
+    .add-prompt-form {
+        max-width: 100%;
+    }
+
+    .kanban-add-card {
+        max-width: 100%;
+    }
+}
+
+/* Large devices (desktops, 1025px and up) */
+@media (min-width: 1025px) {
+    .dashboard {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .prompts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    .kanban-board {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+    }
+
+    .kanban-column {
+        max-height: 600px;
+    }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .tab-btn:hover {
+        background-color: transparent;
+    }
+
+    body.dark .tab-btn:hover {
+        background-color: transparent;
+    }
+
+    .prompt-card:hover {
+        transform: none;
+    }
+
+    .kanban-card:hover {
+        transform: none;
+    }
+
+    .btn {
+        padding: 12px 20px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .toggle-btn,
+    .tab-nav,
+    .add-prompt-form,
+    .kanban-add-card,
+    .prompt-card-actions,
+    .kanban-card-actions {
+        display: none;
+    }
+
+    .tab-content {
+        overflow: visible;
+    }
+
+    .tab-panel {
+        display: block !important;
+    }
+}
