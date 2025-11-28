@@ -9,6 +9,7 @@
 @import url('./components/tabs.css');
 @import url('./components/prompt-library.css');
 @import url('./components/kanban-board.css');
+@import url('./components/canvas-drawing.css');
 
 /* ========================================
    GLOBAL STYLES & RESET

@@ -1,0 +1,496 @@
+/* Canvas Drawing Modal Styles */
+
+/* Canvas Container */
+.canvas-container {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+body.dark .canvas-container {
+    background-color: #1a1a1a;
+    border-color: #2a2a2a;
+}
+
+.canvas-container h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+body.dark .canvas-container h2 {
+    color: #e0e0e0;
+}
+
+.canvas-container p {
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.dark .canvas-container p {
+    color: #999;
+}
+
+/* Open Canvas Button */
+.open-canvas-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+
+/* Modal Structure */
+.canvas-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.canvas-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.canvas-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.canvas-modal-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 900px;
+    height: 90%;
+    max-height: 800px;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Dark Mode */
+body.dark .canvas-modal-container {
+    background-color: #1a1a1a;
+}
+
+/* Modal Header */
+.canvas-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+body.dark .canvas-modal-header {
+    background-color: #242424;
+    border-bottom-color: #333;
+}
+
+.canvas-modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #222;
+    font-weight: 600;
+}
+
+body.dark .canvas-modal-header h2 {
+    color: #e0e0e0;
+}
+
+.canvas-close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.canvas-close-btn:hover {
+    background-color: #e0e0e0;
+    color: #222;
+}
+
+body.dark .canvas-close-btn {
+    color: #aaa;
+}
+
+body.dark .canvas-close-btn:hover {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+/* Modal Content Area */
+.canvas-modal-content {
+    flex: 1;
+    padding: 16px;
+    background-color: #ffffff;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body.dark .canvas-modal-content {
+    background-color: #1a1a1a;
+}
+
+/* Canvas Element */
+#drawingCanvas {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: crosshair;
+    background-color: #ffffff;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark #drawingCanvas {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+/* Controls Section */
+.canvas-controls {
+    padding: 16px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body.dark .canvas-controls {
+    background-color: #242424;
+    border-top-color: #333;
+}
+
+/* Control Groups */
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.control-group label {
+    font-size: 0.9rem;
+    color: #444;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+body.dark .control-group label {
+    color: #bbb;
+}
+
+/* Color Picker */
+.color-picker {
+    width: 50px;
+    height: 40px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 4px;
+    transition: border-color 0.2s;
+}
+
+.color-picker:hover {
+    border-color: #999;
+}
+
+body.dark .color-picker {
+    border-color: #555;
+    background-color: #333;
+}
+
+body.dark .color-picker:hover {
+    border-color: #777;
+}
+
+/* Brush Size Container */
+.brush-size-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brush-slider {
+    width: 150px;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #ddd 0%, #999 100%);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.brush-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.brush-slider::-webkit-slider-thumb:hover {
+    background-color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.brush-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #333;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.brush-slider::-moz-range-thumb:hover {
+    background-color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .brush-slider {
+    background: linear-gradient(to right, #555 0%, #333 100%);
+}
+
+body.dark .brush-slider::-webkit-slider-thumb {
+    background-color: #bbb;
+}
+
+body.dark .brush-slider::-webkit-slider-thumb:hover {
+    background-color: #ddd;
+}
+
+body.dark .brush-slider::-moz-range-thumb {
+    background-color: #bbb;
+}
+
+body.dark .brush-slider::-moz-range-thumb:hover {
+    background-color: #ddd;
+}
+
+.brush-size-display {
+    font-weight: 600;
+    color: #222;
+    min-width: 25px;
+    text-align: right;
+}
+
+body.dark .brush-size-display {
+    color: #e0e0e0;
+}
+
+/* Control Buttons */
+.control-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.control-buttons .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .canvas-modal-container {
+        width: 95%;
+        height: 95%;
+    }
+
+    .canvas-controls {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .control-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .brush-size-container {
+        flex: 1;
+    }
+
+    .control-buttons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .canvas-modal-container {
+        width: 98%;
+        height: 98%;
+        border-radius: 8px;
+    }
+
+    .canvas-modal-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .canvas-modal-content {
+        padding: 8px;
+    }
+
+    #drawingCanvas {
+        width: 100%;
+        height: auto;
+        border-width: 1px;
+    }
+
+    .canvas-controls {
+        padding: 12px 16px;
+        gap: 10px;
+        grid-template-columns: 1fr;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .control-group label {
+        font-size: 0.85rem;
+    }
+
+    .brush-size-container {
+        width: 100%;
+    }
+
+    .brush-slider {
+        flex: 1;
+    }
+
+    .control-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .control-buttons .btn {
+        flex: 1;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .canvas-modal-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+
+    .canvas-modal-header {
+        padding: 12px 16px;
+    }
+
+    .canvas-modal-header h2 {
+        font-size: 1rem;
+    }
+
+    .canvas-modal-content {
+        padding: 4px;
+    }
+
+    #drawingCanvas {
+        width: 100%;
+        height: auto;
+        max-height: calc(100vh - 200px);
+    }
+
+    .canvas-controls {
+        padding: 10px 12px;
+        gap: 8px;
+        grid-template-columns: 1fr;
+    }
+
+    .control-group {
+        gap: 6px;
+    }
+
+    .control-group label {
+        font-size: 0.8rem;
+    }
+
+    .color-picker {
+        width: 45px;
+        height: 35px;
+    }
+
+    .brush-slider {
+        width: 100%;
+        height: 5px;
+    }
+
+    .brush-slider::-webkit-slider-thumb {
+        width: 18px;
+        height: 18px;
+    }
+
+    .brush-slider::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+    }
+
+    .control-buttons {
+        gap: 6px;
+    }
+
+    .control-buttons .btn {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+}
