@@ -1,0 +1,75 @@
+/* ========================================
+   THEME TOGGLE (YIN-YANG BUTTON)
+   ======================================== */
+
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.yin-yang {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, black 50%, white 50%);
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.yin-yang::before,
+.yin-yang::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+}
+
+.yin-yang::before {
+    background: white;
+    transform: translate(-50%, -100%);
+    box-shadow: 0 12.5px 0 black;
+}
+
+.yin-yang::after {
+    background: black;
+    transform: translate(-50%, 0%);
+    box-shadow: 0 -12.5px 0 white;
+}
+
+body.dark .yin-yang {
+    transform: rotate(180deg);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
