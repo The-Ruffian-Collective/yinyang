@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mode Toggle</title>
+    <title>Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -14,13 +14,16 @@
         body {
             height: 100vh;
             width: 100vw;
-            background-color: white;
-            transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #f5f5f5;
+            color: #222;
+            transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
             overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body.dark {
-            background-color: black;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
         }
 
         .toggle-btn {
@@ -82,7 +85,6 @@
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
-        /* Add a subtle ripple effect on click */
         .ripple {
             position: absolute;
             border-radius: 50%;
@@ -98,6 +100,129 @@
                 opacity: 0;
             }
         }
+
+        /* Dashboard Container */
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding-top: 90px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        body.dark .tab-nav {
+            border-bottom-color: #333;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: #222;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark .tab-btn {
+            color: #888;
+        }
+
+        body.dark .tab-btn:hover {
+            color: #e0e0e0;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            color: #222;
+        }
+
+        body.dark .tab-btn.active {
+            color: #e0e0e0;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #222;
+        }
+
+        body.dark .tab-btn.active::after {
+            background-color: #e0e0e0;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Styling */
+        .content-placeholder {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+        }
+
+        body.dark .content-placeholder {
+            background-color: #1a1a1a;
+            border-color: #2a2a2a;
+        }
+
+        .content-placeholder h2 {
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+
+        .content-placeholder p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        body.dark .content-placeholder p {
+            color: #999;
+        }
     </style>
 </head>
 <body>
@@ -105,30 +230,108 @@
         <div class="yin-yang"></div>
     </button>
 
+    <div class="dashboard">
+        <nav class="tab-nav">
+            <button class="tab-btn" data-tab="prompts">Prompts</button>
+            <button class="tab-btn" data-tab="projects">Projects</button>
+            <button class="tab-btn" data-tab="canvas">Canvas</button>
+            <button class="tab-btn" data-tab="gallery">Gallery</button>
+            <button class="tab-btn" data-tab="portfolio">Portfolio</button>
+        </nav>
+
+        <div class="tab-content">
+            <div class="tab-panel" data-panel="prompts">
+                <div class="content-placeholder">
+                    <h2>Prompts</h2>
+                    <p>Manage and organize your AI prompts here.</p>
+                </div>
+            </div>
+            <div class="tab-panel" data-panel="projects">
+                <div class="content-placeholder">
+                    <h2>Projects</h2>
+                    <p>View and manage your projects.</p>
+                </div>
+            </div>
+            <div class="tab-panel" data-panel="canvas">
+                <div class="content-placeholder">
+                    <h2>Canvas</h2>
+                    <p>Create and design in your canvas workspace.</p>
+                </div>
+            </div>
+            <div class="tab-panel" data-panel="gallery">
+                <div class="content-placeholder">
+                    <h2>Gallery</h2>
+                    <p>Browse your gallery of creations.</p>
+                </div>
+            </div>
+            <div class="tab-panel" data-panel="portfolio">
+                <div class="content-placeholder">
+                    <h2>Portfolio</h2>
+                    <p>Showcase your best work in your portfolio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function toggleMode(event) {
-            // Toggle dark mode
             document.body.classList.toggle('dark');
-            
-            // Create ripple effect
+
             const button = event.currentTarget;
-            const rect = button.getBoundingClientRect();
             const ripple = document.createElement('span');
-            
+
             ripple.classList.add('ripple');
             ripple.style.width = ripple.style.height = '10px';
             ripple.style.left = '20px';
             ripple.style.top = '20px';
-            
+
             button.appendChild(ripple);
-            
+
             setTimeout(() => {
                 ripple.remove();
             }, 600);
         }
 
-        // Add keyboard support
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+        const ACTIVE_TAB_KEY = 'activeTab';
+
+        function switchTab(tabName) {
+            tabButtons.forEach(btn => {
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            tabPanels.forEach(panel => {
+                if (panel.dataset.panel === tabName) {
+                    panel.classList.add('active');
+                } else {
+                    panel.classList.remove('active');
+                }
+            });
+
+            localStorage.setItem(ACTIVE_TAB_KEY, tabName);
+        }
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchTab(btn.dataset.tab);
+            });
+        });
+
+        // Load active tab from localStorage or default to first tab
+        const savedTab = localStorage.getItem(ACTIVE_TAB_KEY);
+        const defaultTab = savedTab || 'prompts';
+        switchTab(defaultTab);
+
+        // Keyboard support for mode toggle
         document.addEventListener('keydown', function(event) {
+            if (event.target.tagName === 'BUTTON') return;
+
             if (event.code === 'Space' || event.code === 'Enter') {
                 toggleMode({ currentTarget: document.querySelector('.toggle-btn') });
                 event.preventDefault();
