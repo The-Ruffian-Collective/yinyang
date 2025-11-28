@@ -29,7 +29,7 @@ const portfolioApps = [
     {
         id: 'hungry-lens',
         name: 'Hungry Lens',
-        description: 'AI-powered food recognition app. Take a photo of any dish and get instant nutritional info and recipe suggestions.',
+        description: 'Professional Menu Photography in Seconds. No expensive photoshoots. No time wasted. Just stunning, restaurant-quality food photography generated instantly with AI.',
         link: 'https://hungry-lens.vercel.app',
         icon: '📸'
     },
@@ -45,7 +45,7 @@ const portfolioApps = [
         name: 'YinYang Dashboard',
         description: 'This dashboard - a personal productivity hub with prompt library, kanban board, drawing canvas, and image gallery in one place.',
         link: 'https://yinyang-dashboard.vercel.app',
-        icon: '⚡'
+        icon: '☯'
     }
 ];
 
