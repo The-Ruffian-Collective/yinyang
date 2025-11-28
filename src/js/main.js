@@ -7,6 +7,7 @@ import { initTabs } from './modules/tabs.js';
 import { initPromptLibrary } from './modules/prompt-library.js';
 import { initKanbanBoard } from './modules/kanban-board.js';
 import { initCanvasDrawing } from './modules/canvas-drawing.js';
+import { initImageGallery } from './modules/image-gallery.js';
 
 /**
  * Initializes the application
@@ -21,6 +22,7 @@ function init() {
     initPromptLibrary();
     initKanbanBoard();
     initCanvasDrawing();
+    initImageGallery();
 
     console.log('Application initialized successfully');
 }
