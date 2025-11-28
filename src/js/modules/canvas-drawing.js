@@ -101,8 +101,11 @@ function createModal() {
         </div>
     `;
 
-    // Insert modal into the canvas tab
-    canvasTab.innerHTML = modalHTML;
+    // Insert modal into the body (not the tab, to preserve the button)
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHTML;
+    const modalElement = modalContainer.firstElementChild;
+    document.body.appendChild(modalElement);
 
     // Store references
     modal = document.getElementById('canvasModal');
