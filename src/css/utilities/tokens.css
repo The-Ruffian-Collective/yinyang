@@ -1,0 +1,135 @@
+/* ========================================
+   DESIGN TOKENS
+   CSS custom properties for the entire app.
+   All colours, spacing, shape, shadow and
+   transition values should come from here.
+   ======================================== */
+
+:root {
+    /* ----------------------------------------
+       COLOURS — Light mode
+    ---------------------------------------- */
+
+    /* Backgrounds */
+    --color-bg:          #f5f5f5;
+    --color-bg-elevated: #ffffff;
+    --color-bg-sunken:   #f0f0f0;
+    --color-bg-hover:    rgba(0, 0, 0, 0.04);
+
+    /* Text */
+    --color-text:        #222222;
+    --color-text-muted:  #666666;
+    --color-text-faint:  #999999;
+
+    /* Borders */
+    --color-border:      #e0e0e0;
+    --color-border-strong: #cccccc;
+
+    /* Accent (primary interactive colour) */
+    --color-accent:       #222222;
+    --color-accent-hover: #333333;
+    --color-accent-text:  #ffffff;
+
+    /* Semantic colours */
+    --color-success:       #10b981;
+    --color-success-hover: #059669;
+    --color-success-text:  #ffffff;
+
+    --color-danger:       #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-danger-text:  #ffffff;
+
+    --color-info:       #3b82f6;
+    --color-info-hover: #2563eb;
+    --color-info-text:  #ffffff;
+
+    --color-warning:       #f59e0b;
+    --color-warning-hover: #d97706;
+    --color-warning-text:  #ffffff;
+
+    /* Drag-over highlight */
+    --color-drag-over: rgba(59, 130, 246, 0.10);
+
+    /* ----------------------------------------
+       SPACING
+    ---------------------------------------- */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  20px;
+    --space-6:  24px;
+    --space-7:  32px;
+    --space-8:  48px;
+    --space-9:  64px;
+
+    /* ----------------------------------------
+       TYPOGRAPHY
+    ---------------------------------------- */
+    --font-size-xs:   11px;
+    --font-size-sm:   13px;
+    --font-size-base: 14px;
+    --font-size-md:   16px;
+    --font-size-lg:   18px;
+    --font-size-xl:   20px;
+    --font-size-2xl:  24px;
+    --font-size-3xl:  32px;
+
+    --font-weight-normal:   400;
+    --font-weight-medium:   500;
+    --font-weight-semibold: 600;
+    --font-weight-bold:     700;
+
+    /* ----------------------------------------
+       SHAPE
+    ---------------------------------------- */
+    --radius-sm:   4px;
+    --radius-md:   6px;
+    --radius-lg:   8px;
+    --radius-xl:   12px;
+    --radius-full: 9999px;
+
+    /* ----------------------------------------
+       SHADOWS
+    ---------------------------------------- */
+    --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.10);
+    --shadow-lg:  0 12px 24px rgba(0, 0, 0, 0.12);
+    --shadow-xl:  0 20px 60px rgba(0, 0, 0, 0.20);
+
+    /* ----------------------------------------
+       TRANSITIONS
+    ---------------------------------------- */
+    --transition-fast:  0.15s ease;
+    --transition-base:  0.2s ease;
+    --transition-slow:  0.3s ease;
+    --transition-theme: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ----------------------------------------
+   COLOURS — Dark mode overrides
+---------------------------------------- */
+body.dark {
+    --color-bg:          #0a0a0a;
+    --color-bg-elevated: #1a1a1a;
+    --color-bg-sunken:   #111111;
+    --color-bg-hover:    rgba(255, 255, 255, 0.05);
+
+    --color-text:        #e0e0e0;
+    --color-text-muted:  #999999;
+    --color-text-faint:  #666666;
+
+    --color-border:        #2a2a2a;
+    --color-border-strong: #3a3a3a;
+
+    --color-accent:       #e0e0e0;
+    --color-accent-hover: #f5f5f5;
+    --color-accent-text:  #0a0a0a;
+
+    --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg:  0 12px 24px rgba(0, 0, 0, 0.6);
+    --shadow-xl:  0 20px 60px rgba(0, 0, 0, 0.7);
+
+    --color-drag-over: rgba(59, 130, 246, 0.15);
+}
